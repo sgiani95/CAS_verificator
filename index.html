@@ -10,11 +10,15 @@
     <div class="container">
         <h1>CAS Number Checker</h1>
         <form id="casForm">
-            <label for="casSingle">Enter Single CAS Number:</label>
-            <input type="text" id="casSingle" name="casSingle">
-
-            <label for="casFile">Upload File (CSV format, one CAS number per line):</label>
-            <input type="file" id="casFile" name="casFile" accept=".csv">
+            <div class="form-group">
+                <label for="casSingle">Enter Single CAS Number:</label>
+                <input type="text" id="casSingle" name="casSingle">
+            </div>
+            
+            <div class="form-group">
+                <label for="casFile">Upload File (CSV format, one CAS number per line):</label>
+                <input type="file" id="casFile" name="casFile" accept=".csv">
+            </div>
             
             <button type="submit">Check</button>
         </form>
