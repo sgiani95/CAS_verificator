@@ -1,23 +1,12 @@
-<script>
-    function verifyCASNumber() {
-        var casNumber = document.getElementById("cas_number").value;
-        console.log("CAS number:", casNumber); // Debug statement
-
-        fetch('/verify', {
-            method: 'POST', // Ensure that the method is POST
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ cas_number: casNumber })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response:", data); // Debug statement
-            alert(data.message);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("An error occurred while verifying the CAS number. Please try again later.");
-        });
-    }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Your other meta tags, stylesheets, and scripts go here -->
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+</body>
+</html>
