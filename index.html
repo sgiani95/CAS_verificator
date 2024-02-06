@@ -12,13 +12,16 @@
             console.log("CAS number:", casNumber);
 
             // Implement CAS number verification logic here
-            // Example: Check if CAS number is not empty
-            if (casNumber.trim() === "") {
-                console.error("CAS number is empty");
+            // Example: Check if CAS number matches a specific pattern
+            var casNumberPattern = /^\d{2,7}-\d{2}-\d{1}$/; // Example pattern: "12345-67-8"
+            if (!casNumberPattern.test(casNumber)) {
+                console.error("Invalid CAS number format");
+                alert("Invalid CAS number format. Please enter a valid CAS number.");
                 return;
             }
 
             // Further verification logic goes here...
+            // You can add additional checks based on your specific requirements
         }
     </script>
 </head>
