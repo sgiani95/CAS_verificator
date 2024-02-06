@@ -1,14 +1,7 @@
-from flask import Flask, request, jsonify
 import logging
-
-app = Flask(__name__)
 
 # Configure logging to output to a file
 logging.basicConfig(filename='app.log', level=logging.INFO)
-
-# Now, you can use logging.info(), logging.warning(), etc. to log messages to 'app.log'
-logging.info('This is an informational message')
-logging.warning('This is a warning message')
 
 # Route for processing CAS numbers
 @app.route('/process', methods=['POST'])
@@ -34,6 +27,3 @@ def validate_cas_number(cas_number):
     # Validation logic goes here...
     # Return True if valid, False otherwise
     pass
-
-if __name__ == '__main__':
-    app.run(debug=True)
