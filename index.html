@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAS Verificator</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Ensure the correct path to styles.css -->
     <script>
         function verifyCASNumber() {
             var casNumber = document.getElementById("cas_number").value;
@@ -42,8 +42,12 @@
 </head>
 <body>
     <h1>CAS Verificator</h1>
-    <label for="cas_number">Enter CAS Number:</label>
-    <input type="text" id="cas_number" name="cas_number">
-    <button onclick="verifyCASNumber()">Verify</button>
+    <div class="container"> <!-- Apply styles from styles.css -->
+        <div class="form-container"> <!-- Apply styles from styles.css -->
+            <label for="cas_number">Enter CAS Number:</label>
+            <input type="text" id="cas_number" name="cas_number" class="input-field"> <!-- Apply styles from styles.css -->
+            <button onclick="verifyCASNumber()" class="btn">Verify</button> <!-- Apply styles from styles.css -->
+        </div>
+    </div>
 </body>
 </html>
