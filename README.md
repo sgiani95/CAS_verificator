@@ -49,6 +49,8 @@ Testing Strategy: Plan how you will test your API during development. This inclu
 <li>Document Your API: Write clear documentation for your API endpoints, including details about each endpoint, the parameters it accepts, and the responses it returns. You can use tools like Swagger or OpenAPI to help with this.
 </li>
 
+<!-- Documentation and Examples: Provide clear and comprehensive documentation for developers integrating with your API. Include examples of API requests and responses to help users understand how to use the API effectively. -->
+
 <li>Handle Authentication and Authorization (If Needed): Depending on your API's requirements, you may need to implement authentication and authorization mechanisms to control access to your API endpoints.
 </li>
 
