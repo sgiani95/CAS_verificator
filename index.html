@@ -20,8 +20,22 @@
                 return;
             }
 
-            // Further verification logic goes here...
-            // You can add additional checks based on your specific requirements
+            // Make a POST request to the Flask backend to verify the CAS number
+            fetch('/verify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cas_number: casNumber })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An error occurred while verifying the CAS number. Please try again later.");
+            });
         }
     </script>
 </head>
