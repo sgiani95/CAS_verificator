@@ -1,9 +1,22 @@
 # CAS_verificator
 
+Input:
+
+CAS numbers can be provided either through a single entry online or by uploading a single list.
+Input validation ensures that provided CAS numbers are correctly formatted and acceptable for processing.
+Processing:
+
+CAS numbers are matched against a target list or lists (either provided by the user or by the service).
+Validation and verification algorithms ensure accuracy in the matching process.
+Output:
+
+The result indicates whether each CAS number provided is found in any of the target lists.
+If a match is found, the output specifies which list(s) the CAS number is found in.
+Clear error handling communicates if there are any issues or errors during processing.
 ## API Steps
 
 <ol>
-<li>Plan Your API: Determine what functionality your API will provide, what endpoints it will have, what data it will accept and return, etc.
+## <li>Plan Your API: Determine what functionality your API will provide, what endpoints it will have, what data it will accept and return, etc.
 </li><br>
 
 The purpose of the CAS_verificator API is to check if a given CAS number is present on a given CAS number target lists. This would help to solve issues related to safety or export control. The input is either a single CAS number or a list of CAS numbers uploaded (vertically formatted list). The output is another list resuming in which of the lists a given CAS number is matched.
