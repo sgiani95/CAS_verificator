@@ -1,10 +1,35 @@
 # CAS_verificator
 
-<p> API Steps</p>
+## API Steps
 
 <ol>
 <li>Plan Your API: Determine what functionality your API will provide, what endpoints it will have, what data it will accept and return, etc.
-</li>
+</li><br>
+
+The purpose of the CAS_verificator API is to check if a given CAS number is present on a given CAS number target lists. This would help to solve issues related to safety or export control. The input is either a single CAS number or a list of CAS numbers uploaded (vertically formatted list). The output is another list resuming in which of the lists a given CAS number is matched.
+
+<!-- Define the Purpose: What problem does your API solve? Clearly articulate the purpose and goals of your API. For example, it might provide access to a database, perform specific calculations, integrate with third-party services, etc.
+
+Identify Endpoints: Determine the endpoints your API will expose. An endpoint is a specific URL where your API can be accessed, and each endpoint typically corresponds to a specific function or resource. For example:
+
+/users - Retrieve a list of users or create a new user.
+/products - Retrieve a list of products or add a new product.
+/orders - Retrieve a list of orders or create a new order.
+Define Request and Response Formats: Decide on the data formats your API will accept in requests and return in responses. Common formats include JSON and XML. Specify the structure of the request payloads and response bodies for each endpoint.
+
+Determine Authentication and Authorization: Decide how clients will authenticate with your API and what level of access they'll have. Will you use API keys, OAuth tokens, or some other mechanism? Additionally, consider what permissions different users or clients will have.
+
+Handle Errors: Plan how your API will handle errors and communicate them to clients. Define standard error formats and HTTP status codes to use for different types of errors.
+
+Consider Security: Think about security measures such as input validation, data sanitization, and protection against common attacks like SQL injection and cross-site scripting (XSS).
+
+Versioning: Decide on a versioning strategy for your API. This is important to ensure backward compatibility as you make changes and additions to your API in the future.
+
+Rate Limiting: Determine if you need to implement rate limiting to prevent abuse or excessive usage of your API by individual clients.
+
+Documentation: Plan how you will document your API. Clear and comprehensive documentation is essential for developers who will be integrating with your API. Consider using tools like Swagger or OpenAPI for generating API documentation.
+
+Testing Strategy: Plan how you will test your API during development. This includes unit testing individual components, integration testing endpoints, and possibly setting up automated testing pipelines. -->
 
 <li>Choose a Technology Stack: Decide what programming language and framework you'll use to build your API. Popular choices include Node.js with Express, Python with Flask or Django, Ruby on Rails, etc.
 </li>
