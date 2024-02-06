@@ -48,6 +48,16 @@
             })
             .catch(error => console.error('Error:', error));
         });
+
+        // Fetch default CAS list file and populate input
+        fetch('default_cas_list.csv')
+            .then(response => response.text())
+            .then(data => {
+                var casNumbers = data.trim().split('\n');
+                var singleInput = document.getElementById('casSingle');
+                singleInput.value = casNumbers.join(',');
+            })
+            .catch(error => console.error('Error fetching default CAS list:', error));
     </script>
 </body>
 </html>
