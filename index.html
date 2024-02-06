@@ -10,6 +10,10 @@
     <form id="casForm">
         <label for="casFile">Upload File (CSV format):</label><br>
         <input type="file" id="casFile" name="casFile"><br><br>
+        
+        <label for="casSingle">Enter Single CAS Number:</label><br>
+        <input type="text" id="casSingle" name="casSingle"><br><br>
+        
         <button type="submit">Check</button>
     </form>
     <div id="results"></div>
@@ -19,8 +23,13 @@
             event.preventDefault();
             var formData = new FormData();
             var fileInput = document.getElementById('casFile');
+            var singleInput = document.getElementById('casSingle');
+            
             if (fileInput.files.length > 0) {
                 formData.append('casFile', fileInput.files[0]);
+            }
+            if (singleInput.value.trim() !== '') {
+                formData.append('casSingle', singleInput.value.trim());
             }
 
             fetch('/check', {
