@@ -1,37 +1,35 @@
 from flask import Flask, request, jsonify
+import logging
 
 app = Flask(__name__)
 
-# Mock target list, replace with your actual target list
-target_list = ["target1", "target2", "target3"]
+# Configure logging
+logging.basicConfig(level=logging.INFO)  # Set the logging level as needed
 
+# Route for processing CAS numbers
+@app.route('/process', methods=['POST'])
+def process_cas_number():
+    cas_number = request.json.get('cas_number')
+    logging.info('Processing CAS number: %s', cas_number)
+
+    # Your processing logic goes here...
+
+    # Example processing logic:
+    is_valid = validate_cas_number(cas_number)  # Assuming there's a validation function
+    if is_valid:
+        logging.info('CAS number is valid: %s', cas_number)
+        # Additional processing if the CAS number is valid
+    else:
+        logging.info('Invalid CAS number: %s', cas_number)
+        # Handle invalid CAS number case
+
+    return jsonify({'message': 'CAS number processed successfully'})
+
+# Example function for CAS number validation
 def validate_cas_number(cas_number):
-    # Implement CAS number validation logic using regex
+    # Validation logic goes here...
     # Return True if valid, False otherwise
     pass
 
-def match_cas_numbers(cas_numbers):
-    results = {}
-    for cas_number in cas_numbers:
-        if validate_cas_number(cas_number):
-            matches = [target for target in target_list if cas_number in target]
-            results[cas_number] = matches if matches else "Not found"
-        else:
-            results[cas_number] = "Invalid CAS number"
-    return results
-
-@app.route('/check', methods=['POST'])
-def check_cas_numbers():
-    data = request.json
-    if not data:
-        return jsonify({'error': 'No data provided'}), 400
-
-    cas_numbers = data.get('cas_numbers')
-    if not cas_numbers:
-        return jsonify({'error': 'CAS numbers not provided'}), 400
-
-    results = match_cas_numbers(cas_numbers)
-    return jsonify(results)
-
 if __name__ == '__main__':
-    app.run(debug=True)  # Remove debug=True when deploying to production
+    app.run(debug=True)
