@@ -1,18 +1,15 @@
 # CAS_verificator
 
-Input:
-
-CAS numbers can be provided either through a single entry online or by uploading a single list.
+Input: CAS numbers can be provided either through a single entry online or by uploading a single list.
 Input validation ensures that provided CAS numbers are correctly formatted and acceptable for processing.
-Processing:
 
-CAS numbers are matched against a target list or lists (either provided by the user or by the service).
+Processing: CAS numbers are matched against a target list (either provided by the user or by the service).
 Validation and verification algorithms ensure accuracy in the matching process.
-Output:
 
-The result indicates whether each CAS number provided is found in any of the target lists.
-If a match is found, the output specifies which list(s) the CAS number is found in.
+Output: The result indicates whether each CAS number provided is found in the target lists.
+If a match is found, the output specifies in which list the CAS number is found in.
 Clear error handling communicates if there are any issues or errors during processing.
+
 ## API Steps
 
 <ol>
