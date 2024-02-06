@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <script>
         function verifyCASNumber() {
             var casNumber = document.getElementById("cas_number").value;
-            console.log("CAS number:", casNumber);
+            console.log("CAS number:", casNumber); // Debug statement
 
             fetch('/verify', {
                 method: 'POST',
@@ -19,6 +19,7 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log("Response:", data); // Debug statement
                 alert(data.message);
             })
             .catch(error => {
