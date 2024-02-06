@@ -3,8 +3,8 @@ import logging
 
 app = Flask(__name__)
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)  # Set the logging level as needed
+# Configure logging to output to a file
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Route for processing CAS numbers
 @app.route('/process', methods=['POST'])
