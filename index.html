@@ -9,20 +9,22 @@
 <body>
     <div class="container">
         <h1>CAS Number Checker</h1>
-        <form id="casForm">
-            <div class="form-group">
-                <label for="casSingle">Enter Single CAS Number:</label>
-                <input type="text" id="casSingle" name="casSingle">
-            </div>
-            
-            <div class="form-group">
-                <label for="casFile">Upload File (CSV format, one CAS number per line):</label>
-                <input type="file" id="casFile" name="casFile" accept=".csv">
-            </div>
-            
-            <button type="submit">Check</button>
-        </form>
-        <div id="results"></div>
+        <div class="form-container">
+            <form id="casForm">
+                <div class="form-group">
+                    <label for="casSingle">Enter Single CAS Number:</label>
+                    <input type="text" id="casSingle" name="casSingle" class="input-field" placeholder="e.g., 64-17-5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="casFile">Upload File (CSV format, one CAS number per line):</label>
+                    <input type="file" id="casFile" name="casFile" accept=".csv" class="input-field">
+                </div>
+                
+                <button type="submit" class="btn">Check</button>
+            </form>
+        </div>
+        <div id="results" class="results-container"></div>
     </div>
 
     <script>
