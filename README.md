@@ -14,6 +14,18 @@ The purpose of the CAS_verificator API is to check if a given CAS number is pres
 <li>Uploaded List of CAS Numbers: Provide the option for users to upload a list of CAS numbers. This could be in a vertically aligned format, where each CAS number is on a separate line. This method would be convenient for bulk verification of multiple CAS numbers at once.
 
 <li>For the uploaded list of CAS numbers, file format validation (e.g., CSV or plain text) and error handling for invalid or malformed input files.
+
+<li>Match Identification: Clearly indicate whether each CAS number provided is found in any of the CAS number target lists.
+
+<li>List Identification: If a CAS number is found in one or more lists, specify which lists it is found in. This provides users with actionable information about where the CAS number is listed.
+
+<li>Handling Multiple Matches: If a CAS number is found in multiple lists, decide how to present this information. You could list all matching lists, separate them by commas, or provide additional context depending on the use case.
+
+<li>No Matches Found: Handle cases where a CAS number is not found in any of the lists. Clearly communicate this result to the user to avoid confusion.
+
+<li>Consistent Response Format: Ensure that the output format is consistent across different types of requests (single CAS number input vs. uploaded list of CAS numbers) for ease of integration and interpretation.
+
+<li>Error Handling: Account for potential errors or issues during the matching process. Provide clear error messages if there are problems accessing or processing the CAS number target lists.
 </ul>
 
 <!-- Define the Purpose: What problem does your API solve? Clearly articulate the purpose and goals of your API. For example, it might provide access to a database, perform specific calculations, integrate with third-party services, etc.
