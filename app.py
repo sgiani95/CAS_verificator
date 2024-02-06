@@ -19,24 +19,25 @@ def process_cas_number():
     cas_number = request.json.get('cas_number')
     logging.info('Processing CAS number: %s', cas_number)
 
-    # Your processing logic goes here...
+    # Verify the CAS number
+    is_valid = verify_cas_number(cas_number)
 
-    # Example processing logic:
-    is_valid = validate_cas_number(cas_number)  # Assuming there's a validation function
     if is_valid:
         logging.info('CAS number is valid: %s', cas_number)
-        # Additional processing if the CAS number is valid
+        response = {'message': f'CAS number {cas_number} is valid'}
     else:
         logging.info('Invalid CAS number: %s', cas_number)
-        # Handle invalid CAS number case
+        response = {'message': f'CAS number {cas_number} is invalid'}
 
-    return jsonify({'message': 'CAS number processed successfully'})
+    return jsonify(response)
 
-# Example function for CAS number validation
-def validate_cas_number(cas_number):
-    # Validation logic goes here...
-    # Return True if valid, False otherwise
-    pass
+# Function to verify CAS number
+def verify_cas_number(cas_number):
+    # Example: Check if the CAS number has the correct format (for demonstration purposes)
+    if len(cas_number) == 9:  # Example: CAS number must be 9 characters long
+        return True
+    else:
+        return False
 
 if __name__ == '__main__':
     set_file_permissions()  # Call the function to set file permissions when the script is executed
