@@ -4,24 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAS Verificator</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Ensure the correct path to styles.css -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script>
         function verifyCASNumber() {
             var casNumber = document.getElementById("cas_number").value;
-            
-            // Log the CAS number to the browser console
             console.log("CAS number:", casNumber);
 
-            // Implement CAS number verification logic here
-            // Example: Check if CAS number matches a specific pattern
-            var casNumberPattern = /^\d{2,7}-\d{2}-\d{1}$/; // Example pattern: "12345-67-8"
-            if (!casNumberPattern.test(casNumber)) {
-                console.error("Invalid CAS number format");
-                alert("Invalid CAS number format. Please enter a valid CAS number.");
-                return;
-            }
-
-            // Make a POST request to the Flask backend to verify the CAS number
             fetch('/verify', {
                 method: 'POST',
                 headers: {
@@ -42,11 +30,11 @@
 </head>
 <body>
     <h1>CAS Verificator</h1>
-    <div class="container"> <!-- Apply styles from styles.css -->
-        <div class="form-container"> <!-- Apply styles from styles.css -->
+    <div class="container">
+        <div class="form-container">
             <label for="cas_number">Enter CAS Number:</label>
-            <input type="text" id="cas_number" name="cas_number" class="input-field"> <!-- Apply styles from styles.css -->
-            <button onclick="verifyCASNumber()" class="btn">Verify</button> <!-- Apply styles from styles.css -->
+            <input type="text" id="cas_number" name="cas_number" class="input-field">
+            <button onclick="verifyCASNumber()" class="btn">Verify</button>
         </div>
     </div>
 </body>
