@@ -8,6 +8,12 @@
 
 The purpose of the CAS_verificator API is to check if a given CAS number is present on a given CAS number target lists. This would help to solve issues related to safety or export control. The input is either a single CAS number or a list of CAS numbers uploaded (vertically formatted list). The output is another list resuming in which of the lists a given CAS number is matched.
 
+<ul>
+<li>Single CAS Number Input: Allow users to input a single CAS number through a text field or parameter. This could be useful for quick checks or ad-hoc verifications.
+
+<li>Uploaded List of CAS Numbers: Provide the option for users to upload a list of CAS numbers. This could be in a vertically aligned format, where each CAS number is on a separate line. This method would be convenient for bulk verification of multiple CAS numbers at once.
+
+</ul>
 <!-- Define the Purpose: What problem does your API solve? Clearly articulate the purpose and goals of your API. For example, it might provide access to a database, perform specific calculations, integrate with third-party services, etc.
 
 Identify Endpoints: Determine the endpoints your API will expose. An endpoint is a specific URL where your API can be accessed, and each endpoint typically corresponds to a specific function or resource. For example:
