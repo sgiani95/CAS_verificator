@@ -8,11 +8,11 @@
 <body>
     <h1>CAS Number Checker</h1>
     <form id="casForm">
-        <label for="casFile">Upload File (CSV format):</label><br>
-        <input type="file" id="casFile" name="casFile"><br><br>
-        
         <label for="casSingle">Enter Single CAS Number:</label><br>
         <input type="text" id="casSingle" name="casSingle"><br><br>
+
+        <label for="casFile">Upload File (CSV format, one CAS number per line):</label><br>
+        <input type="file" id="casFile" name="casFile" accept=".csv"><br><br>
         
         <button type="submit">Check</button>
     </form>
@@ -22,20 +22,17 @@
         document.getElementById('casForm').addEventListener('submit', function(event) {
             event.preventDefault();
             var formData = new FormData();
-            var fileInput = document.getElementById('casFile');
             var singleInput = document.getElementById('casSingle');
+            var fileInput = document.getElementById('casFile');
             
-            // Append file input data if a file is selected
-            if (fileInput.files.length > 0) {
-                formData.append('casFile', fileInput.files[0]);
-            }
-            
-            // Append single input data if a value is entered
             if (singleInput.value.trim() !== '') {
                 formData.append('casSingle', singleInput.value.trim());
             }
+            
+            if (fileInput.files.length > 0) {
+                formData.append('casFile', fileInput.files[0]);
+            }
 
-            // Send form data to server
             fetch('/check', {
                 method: 'POST',
                 body: formData
@@ -51,28 +48,6 @@
             })
             .catch(error => console.error('Error:', error));
         });
-
-        // Default list of CAS numbers and attributes
-        var defaultCasNumbers = {
-            '64-17-5': 'flammable',
-            '67-56-1': 'toxic',
-            '7732-18-5': 'non-hazardous'
-        };
-        // Function to convert default CAS numbers to CSV format
-        function convertObjectToCSV(obj) {
-            var csv = [];
-            for (var key in obj) {
-                csv.push(key + ',' + obj[key]);
-            }
-            return csv.join('\n');
-        }
-        // Create a blob with default CAS numbers and attributes
-        var defaultFile = new Blob([convertObjectToCSV(defaultCasNumbers)], { type: 'text/csv' });
-        // Set default file as a downloadable attribute
-        var defaultFileLink = document.createElement('a');
-        defaultFileLink.href = URL.createObjectURL(defaultFile);
-        defaultFileLink.download = 'default_cas_list.csv';
-        document.body.appendChild(defaultFileLink);
     </script>
 </body>
 </html>
