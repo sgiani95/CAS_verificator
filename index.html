@@ -25,13 +25,17 @@
             var fileInput = document.getElementById('casFile');
             var singleInput = document.getElementById('casSingle');
             
+            // Append file input data if a file is selected
             if (fileInput.files.length > 0) {
                 formData.append('casFile', fileInput.files[0]);
             }
+            
+            // Append single input data if a value is entered
             if (singleInput.value.trim() !== '') {
                 formData.append('casSingle', singleInput.value.trim());
             }
 
+            // Send form data to server
             fetch('/check', {
                 method: 'POST',
                 body: formData
