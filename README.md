@@ -26,7 +26,7 @@ The purpose of the CAS_verificator API is to check if a given CAS number is pres
 <li>Consistent Response Format: Ensure that the output format is consistent across different types of requests (single CAS number input vs. uploaded list of CAS numbers) for ease of integration and interpretation.
 
 <li>Error Handling: Account for potential errors or issues during the matching process. Provide clear error messages if there are problems accessing or processing the CAS number target lists.
-</ul>
+</ul><br>
 
 <!-- Define the Purpose: What problem does your API solve? Clearly articulate the purpose and goals of your API. For example, it might provide access to a database, perform specific calculations, integrate with third-party services, etc.
 
