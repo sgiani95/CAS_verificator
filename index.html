@@ -8,24 +8,24 @@
 <body>
     <h1>CAS Number Checker</h1>
     <form id="casForm">
-        <label for="casNumbers">Enter CAS Numbers (separated by commas):</label><br>
-        <input type="text" id="casNumbers" name="casNumbers" required><br><br>
+        <label for="casFile">Upload File (CSV format):</label><br>
+        <input type="file" id="casFile" name="casFile"><br><br>
         <button type="submit">Check</button>
     </form>
     <div id="results"></div>
-    
+
     <script>
         document.getElementById('casForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            var casNumbers = document.getElementById('casNumbers').value.split(',');
-            var data = { 'cas_numbers': casNumbers };
+            var formData = new FormData();
+            var fileInput = document.getElementById('casFile');
+            if (fileInput.files.length > 0) {
+                formData.append('casFile', fileInput.files[0]);
+            }
 
             fetch('/check', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
@@ -38,6 +38,28 @@
             })
             .catch(error => console.error('Error:', error));
         });
+
+        // Default list of CAS numbers and attributes
+        var defaultCasNumbers = {
+            '64-17-5': 'flammable',
+            '67-56-1': 'toxic',
+            '7732-18-5': 'non-hazardous'
+        };
+        // Function to convert default CAS numbers to CSV format
+        function convertObjectToCSV(obj) {
+            var csv = [];
+            for (var key in obj) {
+                csv.push(key + ',' + obj[key]);
+            }
+            return csv.join('\n');
+        }
+        // Create a blob with default CAS numbers and attributes
+        var defaultFile = new Blob([convertObjectToCSV(defaultCasNumbers)], { type: 'text/csv' });
+        // Set default file as a downloadable attribute
+        var defaultFileLink = document.createElement('a');
+        defaultFileLink.href = URL.createObjectURL(defaultFile);
+        defaultFileLink.download = 'default_cas_list.csv';
+        document.body.appendChild(defaultFileLink);
     </script>
 </body>
 </html>
