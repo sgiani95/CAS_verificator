@@ -13,6 +13,22 @@
         <button onclick="queryNumber()">Query</button>
         <div id="result"></div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function queryNumber() {
+            var number = document.getElementById("numberInput").value;
+            fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'number=' + encodeURIComponent(number),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </body>
 </html>
